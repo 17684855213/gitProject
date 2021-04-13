@@ -166,4 +166,8 @@
       and adress = #{adress,jdbcType=VARCHAR}
     </if>
   </select>
+    <delete id="deleteByDepartId">
+      delete from employee
+      where department_id = #{id}
+    </delete>
 </mapper>

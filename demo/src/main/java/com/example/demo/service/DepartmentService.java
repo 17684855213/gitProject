@@ -1,6 +1,9 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Department;
+
+import java.util.List;
+
 public interface DepartmentService{
 
 
@@ -16,4 +19,5 @@ public interface DepartmentService{
 
     int updateByPrimaryKey(Department record);
 
+    List<Department> selectSelective(Department department);
 }

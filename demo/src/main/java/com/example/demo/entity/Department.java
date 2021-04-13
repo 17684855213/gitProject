@@ -2,9 +2,12 @@ package com.example.demo.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
 import java.io.Serializable;
 
 @ApiModel(value="com.example.demo.entity.Department")
+@Data
 public class Department implements Serializable {
     @ApiModelProperty(value="null")
     private Long id;
@@ -15,29 +18,10 @@ public class Department implements Serializable {
     @ApiModelProperty(value="null")
     private String info;
 
+    private Integer pageNum;
+    private Integer pageSize;
+
+
     private static final long serialVersionUID = 1L;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getInfo() {
-        return info;
-    }
-
-    public void setInfo(String info) {
-        this.info = info;
-    }
 }

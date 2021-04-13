@@ -22,4 +22,6 @@ public interface EmployeeMapper {
     int selectByPhoneNumber(String phoneNumber);
 
     List<Employee> selectSelective(Employee employee);
+
+    int deleteByDepartId(Long id);
 }
