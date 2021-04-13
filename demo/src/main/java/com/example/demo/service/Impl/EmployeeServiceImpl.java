@@ -3,6 +3,7 @@ package com.example.demo.service.Impl;
 import com.example.demo.exception.RRException;
 import com.github.pagehelper.PageHelper;
 import com.sun.tools.corba.se.idl.ParameterGen;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.example.demo.entity.Employee;
@@ -14,7 +15,7 @@ import java.util.List;
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 
-    @Resource
+    @Autowired
     private EmployeeMapper employeeMapper;
 
     @Override

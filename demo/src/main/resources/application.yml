@@ -1,8 +1,6 @@
 spring:
-  # 环境 dev|test|prod
   profiles:
     active: dev
-  # jackson时间格式化
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
@@ -18,11 +16,10 @@ spring:
 
 
 #mybatis
+# mybatis-plus配置
 mybatis-plus:
-  mapper-locations:
-    - classpath*:classpath:mapper/**/**/*.xml
-    - classpath*:dao/*.xml
-  typeAliasesPackage: com.admin.entity
+  mapper-locations: classpath*:mapperxml/*.xml  # 这里一定需要注意
+  type-aliases-package: com.example.demo.entity
   global-config:
     #数据库相关配置
     db-config:
@@ -37,17 +34,6 @@ mybatis-plus:
     cache-enabled: false
     call-setters-on-nulls: true
     jdbc-type-for-null: 'null'
-
-
-logging:
-  level:
-    com:
-      org:
-        springframework:
-          data:
-            mongodb:
-              core: DEBUG
-      admin: debug
 
 # Tomcat
 server:

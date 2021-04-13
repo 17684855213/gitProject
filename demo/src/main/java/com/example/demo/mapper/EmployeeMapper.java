@@ -2,6 +2,7 @@ package com.example.demo.mapper;
 
 import com.example.demo.entity.Employee;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public interface EmployeeMapper {
 
     int updateByPrimaryKey(Employee record);
 
-    int selectByPhoneNumber(String phoneNumber);
+    int selectByPhoneNumber( String phoneNumber);
 
     List<Employee> selectSelective(Employee employee);
 

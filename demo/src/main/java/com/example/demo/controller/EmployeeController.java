@@ -26,7 +26,7 @@ public class EmployeeController {
 
 
     @Autowired
-    private EmployeeService employeeService;
+    public EmployeeService employeeService;
 
 
     @PostMapping("/add")
