@@ -136,7 +136,7 @@
   </update>
 
   <select id="selectByPhoneNumber" resultType="int">
-    select * from employee where phone_number=#{phoneNumber,jdbcType=VARCHAR}
+    select count(1) from employee where phone_number=#{phoneNumber,jdbcType=VARCHAR}
   </select>
 
   <select id="selectSelective" resultMap="BaseResultMap">
