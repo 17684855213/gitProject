@@ -1,73 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE generatorConfiguration
-        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
-        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 
 <generatorConfiguration>
-    <properties resource="generator/jdbc.properties"/>
+    <properties resource="jdbc.properties"/>
+    <context id="ffan.hotel" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
 
-    <context id="SqlServer" targetRuntime="MyBatis3" defaultModelType="flat">
-        <property name="beginningDelimiter" value="`"/>
-        <property name="endingDelimiter" value="`"/>
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+            <property name="addRemarkComments" value="true"/>
+        </commentGenerator>
 
-<!--            <jdbcConnection driverClass="${spring.datasource.driver-class-name}"-->
-<!--                            connectionURL="${spring.datasource.url}"-->
-<!--                            userId="${spring.datasource.username}"-->
-<!--                            password="${spring.datasource.password}">-->
-<!--            </jdbcConnection>-->
-
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/data?useUnicode=true&amp;characterEncoding=UTF-8"
-                        userId="root"
-                        password="123456">
+        <jdbcConnection driverClass="${jdbc.driver}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.admin.entity" targetProject="./src/main/java"/>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
 
-<!--        <sqlMapGenerator targetPackage="mapper/imAdmin/" targetProject="src/main/resources"/>-->
-<!--        <javaClientGenerator targetPackage="com.admin.mapper.imAdmin.mapper" targetProject="src/main/java"-->
-<!--                             type="XMLMAPPER"/>-->
-        <sqlMapGenerator targetPackage="mapper/newFans/" targetProject="src/main/resources"/>
-        <javaClientGenerator targetPackage="com.admin.mapper.newFans.mapper" targetProject="src/main/java"
-                             type="XMLMAPPER"/>
+        <javaModelGenerator targetPackage="com.example.demo.entity"
+                            targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapperxml"
+                         targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.example.demo.mapper"
+                             targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
 
 
-
-
-<!--        <table tableName="MS_Account"  enableCountByExample="true"-->
-<!--                enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"-->
-<!--               selectByExampleQueryId="true"  >-->
-<!--            &lt;!&ndash;            驼峰命名&ndash;&gt;-->
-<!--                        <property name="useActualColumnNames" value="true" />-->
-<!--        </table>-->
-<!--        <table tableName="MS_Agent"  enableCountByExample="true"-->
-<!--               enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true"-->
-<!--               selectByExampleQueryId="true"  >-->
-<!--            &lt;!&ndash;            驼峰命名&ndash;&gt;-->
-<!--                        <property name="useActualColumnNames" value="true" />-->
-<!--        </table>-->
-        <table tableName="test"  enableCountByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true"  >
-            <!--            驼峰命名-->
-                        <property name="useActualColumnNames" value="true" />
+        <table tableName="department" enableCountByExample="false"
+               enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
-
-
-
-
-<!--        <table tableName="MC_Group" enableSelectByExample="true">-->
-<!--            <property name="useActualColumnNames" value="true"/>-->
-<!--        </table>-->
-<!--        <table tableName="MC_Group_Customer" enableSelectByExample="true">-->
-<!--            <property name="useActualColumnNames" value="true"/>-->
-<!--        </table>-->
-<!--        <table tableName="MS_Account" enableSelectByExample="true">-->
-<!--            <property name="useActualColumnNames" value="true"/>-->
-<!--        </table>-->
-<!--        <table tableName="WX_UserInfo" enableSelectByExample="true">-->
-<!--            <property name="useActualColumnNames" value="true"/>-->
-<!--        </table>-->
     </context>
+
 </generatorConfiguration>

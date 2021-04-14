@@ -37,7 +37,7 @@ public class EmployeeController {
     }
     @GetMapping("/delete")
     @ApiOperation("删除")
-    public R delete(@RequestParam Integer id){
+    public R delete(@RequestParam Long id){
         return R.ok("成功删除"+employeeService.deleteByPrimaryKey(id)+"条数据");
     }
 

@@ -12,15 +12,15 @@ import java.io.Serializable;
 @Data
 public class Employee implements Serializable {
     @ApiModelProperty(value="null")
-    private Integer id;
+    private Long id;
 
     /**
+
     * 姓名
     */
     @ApiModelProperty(value="姓名")
     @NotNull
     private String name;
-
     /**
     * 性别(女0/男1)
     */

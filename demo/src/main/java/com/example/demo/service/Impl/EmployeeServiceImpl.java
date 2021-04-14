@@ -1,13 +1,13 @@
 package com.example.demo.service.Impl;
 
 import com.example.demo.exception.RRException;
+import com.example.demo.mapper.EmployeeMapper;
 import com.github.pagehelper.PageHelper;
 import com.sun.tools.corba.se.idl.ParameterGen;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
 import com.example.demo.entity.Employee;
-import com.example.demo.mapper.EmployeeMapper;
+
 import com.example.demo.service.EmployeeService;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     private EmployeeMapper employeeMapper;
 
     @Override
-    public int deleteByPrimaryKey(Integer id) {
+    public int deleteByPrimaryKey(Long id) {
         return employeeMapper.deleteByPrimaryKey(id);
     }
 
@@ -38,7 +38,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public Employee selectByPrimaryKey(Integer id) {
+    public Employee selectByPrimaryKey(Long id) {
         return employeeMapper.selectByPrimaryKey(id);
     }
 

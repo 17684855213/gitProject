@@ -1,28 +1,28 @@
 package com.example.demo.mapper;
 
+
 import com.example.demo.entity.Employee;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 @Mapper
 public interface EmployeeMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Employee record);
 
     int insertSelective(Employee record);
 
-    Employee selectByPrimaryKey(Integer id);
+    Employee selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(Employee record);
 
     int updateByPrimaryKey(Employee record);
 
-    int selectByPhoneNumber( String phoneNumber);
+    int selectByPhoneNumber(String phoneNumber);
 
     List<Employee> selectSelective(Employee employee);
 
-    int deleteByDepartId(Long id);
+    void deleteByDepartId(Long id);
 }

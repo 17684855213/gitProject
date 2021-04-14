@@ -7,13 +7,13 @@ import java.util.List;
 public interface EmployeeService{
 
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Employee record);
 
     int insertSelective(Employee record);
 
-    Employee selectByPrimaryKey(Integer id);
+    Employee selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(Employee record);
 
