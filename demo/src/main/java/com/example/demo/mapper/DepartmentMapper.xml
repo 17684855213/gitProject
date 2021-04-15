@@ -80,8 +80,8 @@
 
     <select id="selectSelective" resultMap="BaseResultMap">
       select * from department where 1=1
-      <if test="name != null">
-        and `name` like  "%"#{name,jdbcType=VARCHAR}"#"
+      <if test="name != null and name != ''">
+        and `name` like  "%"#{name}"%"
       </if>
       <if test="info != null">
         and info = #{info,jdbcType=VARCHAR}
