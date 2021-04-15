@@ -3,14 +3,14 @@ package com.example.demo.entity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.NonNull;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 
 @ApiModel(value="com.example.demo.entity.Employee")
 @Data
-public class Employee implements Serializable {
+public class EmployeeParam implements Serializable {
     @ApiModelProperty(value="null")
     private Long id;
 
@@ -28,7 +28,6 @@ public class Employee implements Serializable {
     @NotNull
     private Integer sex;
 
-    private String departmentName;
     /**
     * 年龄
     */
@@ -53,8 +52,8 @@ public class Employee implements Serializable {
     * 爱好
     */
     @ApiModelProperty(value="爱好")
-    private String hobby;
-
+    private List<String> hobby;
+    private String departmentName;
     /**
     * 地址
     */

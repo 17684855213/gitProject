@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.entity.Department;
 import com.example.demo.entity.Employee;
 import com.example.demo.service.DepartmentService;
+import com.example.demo.util.PageUtil;
 import com.example.demo.util.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -19,7 +20,7 @@ import javax.validation.Valid;
  * @Version 1.0
  */
 @RestController
-@RequestMapping("/department")
+@RequestMapping("/deparmentManagement")
 @Api(value = "部门管理",tags = {"部门管理"})
 public class DepartmentController {
 
@@ -44,9 +45,11 @@ public class DepartmentController {
         return R.ok("成功更新"+departmentService.updateByPrimaryKeySelective(department)+"条数据");
     }
 
-    @GetMapping("/list")
+    @PostMapping("/list")
     @ApiOperation("列表获取。支持分页。pageNum，pageSize传null获取全部列表")
-    public R getList(@RequestBody Department department){
-        return R.ok().put("data",departmentService.selectSelective(department));
+    public R getList(@RequestBody(required = false) Department department){
+        return R.ok().put("data",PageUtil.pageDetail(departmentService.selectSelective(department)));
     }
+
+
 }

@@ -18,7 +18,9 @@ public class Department implements Serializable {
     @ApiModelProperty(value="null")
     private String info;
 
-    private Integer pageNum;
+    private int people;
+
+    private Integer pageIndex;
     private Integer pageSize;
 
 
